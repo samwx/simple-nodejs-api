@@ -1,30 +1,18 @@
-var exports = module.exports = {};
+const mysql = require('promise-mysql');
 
-var mysql = require('mysql'),
-    connection = null;
+// Use POOL to reuse connections
+const pool = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'dad-test',
+  connectionLimit: 10
+});
 
+function query() {
+  return pool.query.apply(pool, arguments);
+}
 
-exports.startConnection = function(){
-  connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'dad-test'
-  });
-
-  connection.connect(function(err) {
-    if (err) {
-      console.error('error connecting: ' + err.stack);
-      return;
-    }
-
-    console.log('connected as id ' + connection.threadId);
-  });
-
-  return connection;
-};
-
-exports.closeConnection = function() {
-  connection.end();
-  console.log('connection was closed');
-};
+exports = {
+  query: query
+}

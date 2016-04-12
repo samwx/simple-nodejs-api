@@ -1,6 +1,4 @@
-var exports    = module.exports = {},
-    connection = require('./connection.js');
-
+const connection = require('./connection.js');
 
 /**
  *
@@ -9,15 +7,5 @@ var exports    = module.exports = {},
  */
 
 exports.getUsers = function(data) {
-  conn = connection.startConnection();
-
-  var q = 'SELECT * FROM users';
-  conn.query(q, function(err, rows, fields){
-    if (err) throw err;
-
-    console.log(rows[0]);
-    return rows;
-  });
-
-  conn.end();
+  return connection.query('SELECT * FROM users');
 };
