@@ -7,7 +7,7 @@ const mysqlPool = promiseMysql.createPool({
   password: ``,
   database: `dad-test`,
   connectionLimit: 10
-});
+})
 
 export default {
   query (queryString) {
