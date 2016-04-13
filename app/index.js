@@ -18,11 +18,11 @@ const api = {
     const users = user.getUsers()
 
     users.then(users => {
-      console.log(users);
+      console.log(users)
       res.json({
         results: users
-      });
-    }).catch(err => error.internalServerError(err, req, res));
+      })
+    }).catch(err => error.internalServerError(err, req, res))
   }
 }
 
@@ -31,9 +31,9 @@ const app = express()
 /**
  * Routes
  */
-app.get(`/`, api.index);
-app.get(`/users`, api.users);
+app.get(`/`, api.index)
+app.get(`/users`, api.users)
 
 app.listen(PORT, function(){
-	console.log(`Listening on port ${PORT}`);
+	console.log(`Listening on port ${PORT}`)
 });
