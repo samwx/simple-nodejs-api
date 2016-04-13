@@ -4,13 +4,13 @@ const app        = express();
 
 const PORT = process.env.PORT || 3000
 
-function internalServerError (err) {
+function internalServerError (err, req, res) {
   res.status(500);
-  res.render('error', { error: err })
+  res.json({ error: err })
 }
 
 function indexApi(req, res){
-  res.json({msg: 'Hello world!'});
+  res.json({msg: 'Ta tranquilo, ta favoravel!'});
 }
 
 function usersApi(req, res){
@@ -21,7 +21,9 @@ function usersApi(req, res){
       console.log(users);
       res.json({results: users});
     })
-    .catch(respondInternalServerError);
+    .catch(function (err) {
+      internalServerError(err, req, res)
+    });
 }
 
 /**
