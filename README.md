@@ -3,24 +3,30 @@
 
 `$ npm install`
 
-## Running server
+## Running server (Development mode)
 
-`$ npm start`
+Run the "app" with babel tranpilation at require runtime!
+You can change the JS files then nodemon will watch and automatically update the app.
+
+`$ npm run start`
 
 ```sh
-$ curl -i http://localhost:3000
-HTTP/1.1 200 OK
-X-Powered-By: Express
-Content-Type: application/json; charset=utf-8
-Content-Length: 37
-ETag: W/"25-Am7DbFI/GdU0e/53WCLWrA"
-Date: Wed, 13 Apr 2016 06:45:09 GMT
-Connection: keep-alive
+$ curl http://localhost:3000
+{"msg":"Ta tranquilo, ta favoravel!"}
 ```
-```javascript
+
+## Running server (Production mode)
+
+This will transpile the "app" into a ES5 on a dist folder
+
+`$ npm run build`
+`$ npm run server`
+
+```sh
+$ curl http://localhost:3000
 {"msg":"Ta tranquilo, ta favoravel!"}
 ```
 
 - Changing the default PORT
 
-`$ PORT=6666 npm start`
+`$ PORT=6666 npm run start`
