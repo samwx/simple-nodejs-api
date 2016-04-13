@@ -14,7 +14,9 @@ function indexApi(req, res){
 }
 
 function usersApi(req, res){
-  user.getUsers()
+  const usersPromise = user.getUsers()
+  
+  usersPromise
     .then(function (users) {
       console.log(users);
       res.json({results: users});

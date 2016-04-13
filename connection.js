@@ -13,6 +13,6 @@ function query() {
   return pool.query.apply(pool, arguments);
 }
 
-exports = {
+module.exports = {
   query: query
 }
