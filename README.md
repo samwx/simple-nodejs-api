@@ -19,7 +19,7 @@ $ curl http://localhost:3000
 
 This will transpile the "app" into a ES5 on a dist folder
 
-`$ npm run build`
+`$ npm run build`  
 `$ npm run server`
 
 ```sh
@@ -27,6 +27,10 @@ $ curl http://localhost:3000
 {"msg":"Ta tranquilo, ta favoravel!"}
 ```
 
+----
+
 - Changing the default PORT
 
 `$ PORT=6666 npm run start`
+or
+`$ PORT=6666 npm run server`
